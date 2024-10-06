@@ -15,9 +15,9 @@ import streamlit as st
 st.title("COMP301 - Project - Fine-Tuned LLM")
 st.write("Financial Advisor")
 
-st.sidebar.title("Sidebar Menu")
-st.sidebar.button("Button in Sidebar")
-st.sidebar.slider("Slider in Sidebar")
+# st.sidebar.title("Sidebar Menu")
+# st.sidebar.button("Button in Sidebar")
+# st.sidebar.slider("Slider in Sidebar")
 
 if 'output_text' not in st.session_state:
     st.session_state.output_text = ""
@@ -40,7 +40,7 @@ def process_request():
     outtext = query({
 	"inputs": input_prompt}
 )
-    st.session_state.output_text = outtext[0]["output"]
+    st.session_state.output_text = outtext[0]["output"][0]
     
     
 if submit_button:
