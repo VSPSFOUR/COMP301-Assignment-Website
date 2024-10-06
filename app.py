@@ -40,7 +40,7 @@ def process_request():
     outtext = query({
 	"inputs": input_prompt}
 )
-    st.session_state.output_text = outtext
+    st.session_state.output_text = outtext[0]["output"]
     
     
 if submit_button:
