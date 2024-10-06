@@ -36,6 +36,7 @@ with st.form(key='my_form'):
         
         
 def process_request():
+    st.session_state.output_text = "   PROCESSING..."
     input_prompt = text_test
     outtext = query({
 	"inputs": input_prompt}
