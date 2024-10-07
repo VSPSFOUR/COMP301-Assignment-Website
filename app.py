@@ -12,7 +12,7 @@ def query(payload):
 
 import streamlit as st
 
-st.title("COMP301_Waah - Project - Fine-Tuned LLM")
+st.title("COMP301 - Project - Fine-Tuned LLM")
 st.write("Financial Advisor")
 
 # st.sidebar.title("Sidebar Menu")
