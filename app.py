@@ -1,9 +1,9 @@
 import streamlit as st
 import requests
 import os
-import pandas as pd
-import yfinance as yf
-import plotly.graph_objects as go
+# import pandas as pd
+# import yfinance as yf
+# import plotly.graph_objects as go
 from auther import auth_required, login_page, register_page, logout
 
 # Hugging Face API setup
@@ -18,19 +18,19 @@ def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
 
-def get_stock_data(ticker, period='1y'):
-    stock = yf.Ticker(ticker)
-    hist = stock.history(period=period)
-    return hist
+# def get_stock_data(ticker, period='1y'):
+#     stock = yf.Ticker(ticker)
+#     hist = stock.history(period=period)
+#     return hist
 
-def plot_stock_data(data, ticker):
-    fig = go.Figure(data=[go.Candlestick(x=data.index,
-                open=data['Open'],
-                high=data['High'],
-                low=data['Low'],
-                close=data['Close'])])
-    fig.update_layout(title=f"{ticker} Stock Price", xaxis_title="Date", yaxis_title="Price")
-    return fig
+# def plot_stock_data(data, ticker):
+#     fig = go.Figure(data=[go.Candlestick(x=data.index,
+#                 open=data['Open'],
+#                 high=data['High'],
+#                 low=data['Low'],
+#                 close=data['Close'])])
+#     fig.update_layout(title=f"{ticker} Stock Price", xaxis_title="Date", yaxis_title="Price")
+#     return fig
 
 st.title("GPT-enhanced Finance Assistant")
 
@@ -92,13 +92,13 @@ def main_app():
     with tab3:
         st.header("Stock Analysis")
         ticker = st.text_input("Enter stock ticker (e.g., AAPL for Apple):")
-        if st.button("Analyze"):
-            data = get_stock_data(ticker)
-            st.plotly_chart(plot_stock_data(data, ticker))
+        # if st.button("Analyze"):
+        #     data = get_stock_data(ticker)
+        #     st.plotly_chart(plot_stock_data(data, ticker))
             
-            prompt = f"Provide a brief analysis of {ticker} stock based on recent performance."
-            response = query({"inputs": prompt})
-            st.write("Analysis:", response[0]['generated_text'])
+        #     prompt = f"Provide a brief analysis of {ticker} stock based on recent performance."
+        #     response = query({"inputs": prompt})
+        #     st.write("Analysis:", response[0]['generated_text'])
 
     # Disclaimer
     st.sidebar.markdown("---")
