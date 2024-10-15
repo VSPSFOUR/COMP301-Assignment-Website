@@ -20,6 +20,9 @@ def save_user(username, password):
 
 def authenticate(username, password):
     users = load_users()
+    if(users == {}):
+        print("Empty Database")
+        return 
     return username in users and users[username] == hash_password(password)
 
 def login_page():
@@ -34,6 +37,13 @@ def login_page():
             st.rerun()
         else:
             st.error("Invalid username or password")
+    if st.button("Register"):
+        users = load_users()
+        if username in users:
+            st.error("Username already exists")
+        else:
+            save_user(username, password)
+            st.success("Registered successfully! Please log in.")
 
 def register_page():
     st.title("Register")
