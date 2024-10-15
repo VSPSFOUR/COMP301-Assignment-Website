@@ -62,7 +62,7 @@ def main_app():
     if st.button("Search"):
         prompt = f"As a finance expert, please answer the following query: {query_input}"
         response = query({"inputs": prompt})
-        st.write("Answer:", response[0]['generated_text'])
+        st.write("Answer:", response[0]["output"][0])
         
         
         
