@@ -60,7 +60,9 @@ def main_app():
     query_input = st.text_input("Enter your finance-related query:")
     
     if st.button("Search"):
-        prompt = f"As a finance expert, please answer the following query: {query_input}"
+        # prompt = f"As a finance expert, please answer the following query: {query_input}"
+        prompt = f"As a finance expert, answer the following query with context that the {user_context}: {query_input}"
+
         response = query({"inputs": prompt})
         st.write("Answer:", response[0]["output"][0])
         
