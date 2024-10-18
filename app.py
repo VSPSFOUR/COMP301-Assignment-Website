@@ -48,11 +48,11 @@ def main_app():
     # Sidebar for user context
     st.sidebar.header("User Context")
     st.session_state.user_context['age'] = st.sidebar.slider("Age", 18, 100, st.session_state.user_context['age'])
-    st.session_state.user_context['income'] = st.sidebar.number_input("Annual Income ($)", min_value=0, value=st.session_state.user_context['income'])
-    st.session_state.user_context['savings'] = st.sidebar.number_input("Current Savings ($)", min_value=0, value=st.session_state.user_context['savings'])
+    st.session_state.user_context['income'] = st.sidebar.number_input("Annual Income (ZAR)", min_value=0, value=st.session_state.user_context['income'])
+    st.session_state.user_context['savings'] = st.sidebar.number_input("Current Savings (ZAR)", min_value=0, value=st.session_state.user_context['savings'])
     st.session_state.user_context['risk_tolerance'] = st.sidebar.select_slider("Risk Tolerance", options=["Low", "Medium", "High"], value=st.session_state.user_context['risk_tolerance'])
 
-    user_context = f"User is {st.session_state.user_context['age']} years old, with an annual income of ${st.session_state.user_context['income']}, current savings of ${st.session_state.user_context['savings']}, and a {st.session_state.user_context['risk_tolerance'].lower()} risk tolerance."
+    user_context = f"User is {st.session_state.user_context['age']} years old, with an annual income of ZAR {st.session_state.user_context['income']}, current savings of ZAR {st.session_state.user_context['savings']}, and a {st.session_state.user_context['risk_tolerance'].lower()} risk tolerance."
 
     # Main content
 
